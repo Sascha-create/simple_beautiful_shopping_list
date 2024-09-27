@@ -1,17 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:simple_beautiful_shopping_list/models/product.dart';
 import 'package:simple_beautiful_shopping_list/presentation/main_screen.dart';
+import 'package:simple_beautiful_shopping_list/product_repository.dart';
 
 void main() {
-  final List<Product> products = [
-    Product("Tomate", 19.99),
-    Product("Apfel", 7.99),
-    Product("Wassermelone", 34.99),
-    Product("Tee", 12.99),
-    Product("Lego", 649.99)
-  ];
+  ProductRepository productRepository = ProductRepository();
 
-  runApp(MainApp(products: products));
+  runApp(MainApp(products: productRepository.getProducts()));
 }
 
 // Das hier ist eine Ausnahme. Die erste Klasse darf mit in der main.dart sein.
